@@ -3,3 +3,5 @@
 ################################################################################
 
 /SigmaProject/.vs/SigmaProject/v15
+/SigmaProject/SigmaProject/obj/Debug/netcoreapp2.2
+/SigmaProject/DataLayer/obj/Debug/netcoreapp2.2
