@@ -8,7 +8,9 @@
     ".NETCoreApp,Version=v2.2": {
       "BussinessLayer/1.0.0": {
         "dependencies": {
-          "DataLayer": "1.0.0"
+          "DataLayer": "1.0.0",
+          "Microsoft.AspNetCore.Authentication.JwtBearer": "2.2.0.0",
+          "Microsoft.AspNetCore.Cryptography.KeyDerivation": "2.2.0.0"
         },
         "runtime": {
           "BussinessLayer.dll": {}
@@ -503,14 +505,21 @@
       "DataLayer/1.0.0": {
         "dependencies": {
           "Microsoft.EntityFrameworkCore": "2.2.4",
-          "Microsoft.EntityFrameworkCore.SqlServer": "2.2.4",
-          "Microsoft.AspNetCore.Cryptography.KeyDerivation": "2.2.0.0"
+          "Microsoft.EntityFrameworkCore.SqlServer": "2.2.4"
         },
         "runtime": {
           "DataLayer.dll": {}
         }
       },
-      "Microsoft.AspNetCore.Cryptography.KeyDerivation.Reference/2.2.0.0": {
+      "Microsoft.AspNetCore.Authentication.JwtBearer/2.2.0.0": {
+        "runtime": {
+          "Microsoft.AspNetCore.Authentication.JwtBearer.dll": {
+            "assemblyVersion": "2.2.0.0",
+            "fileVersion": "2.2.0.18316"
+          }
+        }
+      },
+      "Microsoft.AspNetCore.Cryptography.KeyDerivation/2.2.0.0": {
         "runtime": {
           "Microsoft.AspNetCore.Cryptography.KeyDerivation.dll": {
             "assemblyVersion": "2.2.0.0",
@@ -902,7 +911,12 @@
       "serviceable": false,
       "sha512": ""
     },
-    "Microsoft.AspNetCore.Cryptography.KeyDerivation.Reference/2.2.0.0": {
+    "Microsoft.AspNetCore.Authentication.JwtBearer/2.2.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Microsoft.AspNetCore.Cryptography.KeyDerivation/2.2.0.0": {
       "type": "reference",
       "serviceable": false,
       "sha512": ""

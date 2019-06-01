@@ -6,9 +6,8 @@ using DataLayer.Models;
 
 namespace BussinessLayer.Services.Contracts
 {
-    public interface IUserService :IBaseService<User>
+    public interface IAuthService
     {
-        Task<User> GetByUserNameAndPass(string _username, string _password);
-        string GetEncryptedPassword(string _pass);
+        Task<bool> Login(User _user);
     }
 }

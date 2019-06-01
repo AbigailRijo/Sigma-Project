@@ -2,8 +2,10 @@ C:\Users\Abigail Rijo\Desktop\github\SigmaProject\SigmaProject\BussinessLayer\bi
 C:\Users\Abigail Rijo\Desktop\github\SigmaProject\SigmaProject\BussinessLayer\bin\Debug\netcoreapp2.2\BussinessLayer.dll
 C:\Users\Abigail Rijo\Desktop\github\SigmaProject\SigmaProject\BussinessLayer\bin\Debug\netcoreapp2.2\BussinessLayer.pdb
 C:\Users\Abigail Rijo\Desktop\github\SigmaProject\SigmaProject\BussinessLayer\bin\Debug\netcoreapp2.2\DataLayer.dll
+C:\Users\Abigail Rijo\Desktop\github\SigmaProject\SigmaProject\BussinessLayer\bin\Debug\netcoreapp2.2\Microsoft.AspNetCore.Authentication.JwtBearer.dll
 C:\Users\Abigail Rijo\Desktop\github\SigmaProject\SigmaProject\BussinessLayer\bin\Debug\netcoreapp2.2\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
 C:\Users\Abigail Rijo\Desktop\github\SigmaProject\SigmaProject\BussinessLayer\bin\Debug\netcoreapp2.2\DataLayer.pdb
+C:\Users\Abigail Rijo\Desktop\github\SigmaProject\SigmaProject\BussinessLayer\bin\Debug\netcoreapp2.2\Microsoft.AspNetCore.Authentication.JwtBearer.xml
 C:\Users\Abigail Rijo\Desktop\github\SigmaProject\SigmaProject\BussinessLayer\bin\Debug\netcoreapp2.2\Microsoft.AspNetCore.Cryptography.KeyDerivation.xml
 C:\Users\Abigail Rijo\Desktop\github\SigmaProject\SigmaProject\BussinessLayer\obj\Debug\netcoreapp2.2\BussinessLayer.csprojAssemblyReference.cache
 C:\Users\Abigail Rijo\Desktop\github\SigmaProject\SigmaProject\BussinessLayer\obj\Debug\netcoreapp2.2\BussinessLayer.csproj.CoreCompileInputs.cache

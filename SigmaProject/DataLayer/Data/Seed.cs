@@ -19,16 +19,21 @@ namespace DataLayer.Data
                     FirstName = "Admin",
                     LastName = "Admin",
                     Username = "admin",
-                    Password = Convert.ToBase64String(KeyDerivation.Pbkdf2(
-                        password: "2019@123!",
-                        salt: new byte[128 / 8],
-                        prf: KeyDerivationPrf.HMACSHA1,
-                        iterationCount: 10000,
-                        numBytesRequested: 256 / 8))
+                    Password = GetEncryptedPassword("2019@123!")
                 }
             };
 
             return _users;
+        }
+
+        public string GetEncryptedPassword(string _pass)
+        {
+            return Convert.ToBase64String(KeyDerivation.Pbkdf2(
+                password: _pass,
+                salt: new byte[128 / 8],
+                prf: KeyDerivationPrf.HMACSHA1,
+                iterationCount: 10000,
+                numBytesRequested: 256 / 8));
         }
     }
 }

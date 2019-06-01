@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using DataLayer.Data;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Cryptography.KeyDerivation;
 
 namespace BussinessLayer.Services
 {
@@ -44,9 +45,18 @@ namespace BussinessLayer.Services
 
         public async Task<User> GetById(int id) => await _context.Users.FindAsync(id);
 
-        public async Task<User> GetByUserNameAndPass(User _user) => await _context.Users
-            .Where(x => x.Username == _user.Username && x.Password == _user.Password).FirstOrDefaultAsync();
+        public async Task<User> GetByUserNameAndPass(string _username, string _password) => await _context.Users
+            .Where(x => x.Username == _username && x.Password == GetEncryptedPassword(_password)).FirstOrDefaultAsync();
 
+        public string GetEncryptedPassword(string _pass)
+        {
+            return Convert.ToBase64String(KeyDerivation.Pbkdf2(
+                password: _pass,
+                salt: new byte[128 / 8],
+                prf: KeyDerivationPrf.HMACSHA1,
+                iterationCount: 10000,
+                numBytesRequested: 256 / 8));
+        }
 
         public async Task<bool> SoftDelete(int id)
         {
