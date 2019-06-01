@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DataLayer.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20190531212514_inictial")]
+    [Migration("20190601004044_inictial")]
     partial class inictial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -50,6 +50,19 @@ namespace DataLayer.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Users");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            CreationDate = new DateTime(2019, 5, 31, 20, 40, 43, 337, DateTimeKind.Local).AddTicks(4105),
+                            FirstName = "Admin",
+                            IsDeleted = false,
+                            LastName = "Admin",
+                            ModifyedDate = new DateTime(2019, 5, 31, 20, 40, 43, 338, DateTimeKind.Local).AddTicks(8203),
+                            Password = "LY2TluXFMaUK7hjiqR+E+VQjU43eWO0v7Pl6wXvrNOc=",
+                            Username = "admin"
+                        });
                 });
 #pragma warning restore 612, 618
         }

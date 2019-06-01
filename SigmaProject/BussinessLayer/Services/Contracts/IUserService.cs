@@ -6,8 +6,8 @@ using DataLayer.Models;
 
 namespace BussinessLayer.Services.Contracts
 {
-    public interface IUserService
+    public interface IUserService :IBaseService<User>
     {
-        Task<List<User>> GetAll();
+        Task<User> GetByUserNameAndPass(User _user);
     }
 }

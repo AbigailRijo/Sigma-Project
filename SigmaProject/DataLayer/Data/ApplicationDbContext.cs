@@ -14,5 +14,17 @@ namespace DataLayer.Data
         { }
 
         public DbSet<User> Users { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            Seed seedData = new Seed();
+
+            #region UserSeed
+
+            modelBuilder.Entity<User>().HasData(seedData.GetUserList());
+
+            #endregion
+
+        }
     }
 }
