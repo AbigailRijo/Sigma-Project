@@ -23,12 +23,10 @@ namespace SigmaProject.Controllers
     public class AuthController : ControllerBase
     {
         private readonly IAuthService _authService;
-        private readonly ApiSettings _apiSettings;
 
-        public AuthController(IAuthService authService, IOptions<ApiSettings> settingConfig)
+        public AuthController(IAuthService authService)
         {
             _authService = authService;
-            _apiSettings = settingConfig.Value;
         }
 
         [SwaggerOperation(Summary = "", Description = "")]
@@ -51,31 +49,13 @@ namespace SigmaProject.Controllers
 
                 if (await _authService.Login(_user))
                 {
-                    return BuildToken(_user);
+                    return Ok(_authService.BuildToken(_user));
                 }
             }
 
             return BadRequest("Error");
         }
 
-        private IActionResult BuildToken(User user)
-        {
-            var claims = new[]
-            {
-                new Claim(JwtRegisteredClaimNames.UniqueName, user.Username),
-                new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
-            };
-            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_apiSettings.SecretKey));
-            var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
-            var expiration = DateTime.UtcNow.AddMinutes(15);
-            JwtSecurityToken token = new JwtSecurityToken(
-                issuer: _apiSettings.Issuer,
-                audience: _apiSettings.Audience,
-                expires: expiration,
-                claims: claims,
-                signingCredentials: creds);
-
-            return Ok(new { token = new JwtSecurityTokenHandler().WriteToken(token) });
-        }
+       
     }
 }

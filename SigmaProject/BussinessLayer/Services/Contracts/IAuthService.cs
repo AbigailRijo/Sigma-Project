@@ -9,5 +9,6 @@ namespace BussinessLayer.Services.Contracts
     public interface IAuthService
     {
         Task<bool> Login(User _user);
+        string BuildToken(User user);
     }
 }

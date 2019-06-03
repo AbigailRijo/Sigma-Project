@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using DataLayer.Data.Models;
 using Microsoft.EntityFrameworkCore;
 using DataLayer.Models;
 
@@ -14,7 +15,7 @@ namespace DataLayer.Data
         { }
 
         public DbSet<User> Users { get; set; }
-
+        
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             Seed seedData = new Seed();
