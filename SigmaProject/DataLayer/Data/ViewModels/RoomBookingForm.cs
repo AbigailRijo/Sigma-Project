@@ -7,7 +7,7 @@ namespace DataLayer.Data.ViewModels
 {
     public class RoomBookingForm
     {
-        public string availToken { get; set; }
+        public string AvailToken { get; set; }
         public int? RoomTypeId { get; set; }
         [Required]
         public int Adults { get; set; }

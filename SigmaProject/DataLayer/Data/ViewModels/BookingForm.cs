@@ -15,6 +15,7 @@ namespace DataLayer.Data.ViewModels
         [Required]
         public DateTime Until { get; set; }
         public int? HotelId { get; set; }
+        public virtual Hotel Hotel { get; set; }
         [Required]
         public int Nights { get; set; }
         [Required]

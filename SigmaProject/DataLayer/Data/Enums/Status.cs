@@ -4,7 +4,7 @@ using System.Text;
 
 namespace DataLayer.Data.Enums
 {
-    public enum  Status
+    public enum Status
     {
         Draft,
         Pendig,

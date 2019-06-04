@@ -10,12 +10,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DataLayer.Data.Models;
 
 namespace SigmaProject.ServiceExtensions
 {
     public static class ServiceExtensions
     {
-        //configure cors to acepts request
+        #region configure cors to acepts request
+
         public static void ConfigureCords(this IServiceCollection services)
             => services.AddCors(options =>
             {
@@ -27,6 +29,10 @@ namespace SigmaProject.ServiceExtensions
                         .AllowAnyOrigin());
             });
 
+        #endregion
+
+        #region Swagger Configuration 
+
         public static void DocumentationSwagger(this IServiceCollection services)
         {
             services.AddSwaggerGen(x =>
@@ -36,7 +42,10 @@ namespace SigmaProject.ServiceExtensions
             });
         }
 
-        //Configuration service to auth with JWT 
+        #endregion
+
+        #region Configuration service to auth with JWT 
+
         public static void AuthServiceConfig(this IServiceCollection services, IConfiguration configuration)
         {
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
@@ -55,11 +64,23 @@ namespace SigmaProject.ServiceExtensions
                     });
         }
 
-        //configuration to services
+        #endregion
+
+        #region configuration to services
+
         public static void WebServices(this IServiceCollection services)
         {
             services.AddTransient<IUserService, UserService>();
             services.AddTransient<IAuthService, AuthService>();
+            services.AddTransient<IBookingService, BookingService>();
+            services.AddTransient<IAvailabilityService, AvailabilityService>();
+            services.AddTransient<IHotelService, HotelService>();
+            services.AddTransient<IRoomService, RoomService>();
+            services.AddTransient<IGuestService, GuestService>();
+            services.AddTransient<IRoomService, RoomService>();
+            services.AddTransient<ITranferService, TranferService>();
         }
+
+        #endregion
     }
 }
