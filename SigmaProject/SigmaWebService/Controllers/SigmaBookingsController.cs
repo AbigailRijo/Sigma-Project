@@ -23,15 +23,15 @@ namespace SigmaWebService.Controllers
         {
             _sigmaBookingService = sigmaBookingService;
         }
-
-        public IActionResult Getavailability([FromBody] string _bookingFormXML)
+        [HttpPost("Avail")]
+        public IActionResult Getavailability([FromBody] BookingForm _bookingFormXML)
         {
             //var booking = XElement.
-            XmlSerializer serializer = new XmlSerializer(typeof(BookingForm));
-            StringReader rdr = new StringReader(_bookingFormXML);
-            BookingForm _bookingForm = (BookingForm)serializer.Deserialize(rdr);
+            //XmlSerializer serializer = new XmlSerializer(typeof(BookingForm));
+            //StringReader rdr = new StringReader(_bookingFormXML);
+            //BookingForm _bookingForm = (BookingForm)serializer.Deserialize(rdr);
 
-            return Ok(_sigmaBookingService.Getavailability(_bookingForm));
+            return Ok(_sigmaBookingService.Getavailability(_bookingFormXML));
         }
     }
 }

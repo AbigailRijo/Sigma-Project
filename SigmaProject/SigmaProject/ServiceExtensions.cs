@@ -79,6 +79,7 @@ namespace SigmaProject.ServiceExtensions
             services.AddTransient<IGuestService, GuestService>();
             services.AddTransient<IRoomService, RoomService>();
             services.AddTransient<ITranferService, TranferService>();
+            services.AddTransient<IRoomTypeService, RoomTypeService>();
         }
 
         #endregion

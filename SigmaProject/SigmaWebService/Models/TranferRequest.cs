@@ -9,6 +9,6 @@ namespace SigmaWebService.Models
     {
         public DateTime Since { get; set; }
         public DateTime Until { get; set; }
-        public TranferAvailCriterias AvailCriterias { get;set }
+        public TranferAvailCriterias AvailCriterias { get; set; }
     }
 }
