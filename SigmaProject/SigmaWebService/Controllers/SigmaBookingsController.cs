@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Xml.Linq;
+using System.Xml.Serialization;
 using DataLayer.Data.ViewModels;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -22,12 +24,14 @@ namespace SigmaWebService.Controllers
             _sigmaBookingService = sigmaBookingService;
         }
 
-        public IActionResult Getavailability([FromRoute] string _bookingForm)
+        public IActionResult Getavailability([FromBody] string _bookingFormXML)
         {
             //var booking = XElement.
+            XmlSerializer serializer = new XmlSerializer(typeof(BookingForm));
+            StringReader rdr = new StringReader(_bookingFormXML);
+            BookingForm _bookingForm = (BookingForm)serializer.Deserialize(rdr);
 
-
-            return Ok();//await _sigmaBookingService.Getavailability(_bookingForm));
+            return Ok(_sigmaBookingService.Getavailability(_bookingForm));
         }
     }
 }

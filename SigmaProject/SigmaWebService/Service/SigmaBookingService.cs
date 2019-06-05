@@ -13,7 +13,7 @@ namespace SigmaWebService.Service
     }
     public class SigmaBookingService : ISigmaBookingService
     {
-        public async Task<BookingAvailability> Getavailability(BookingForm _bookingForm)
+        public Task<BookingAvailability> Getavailability(BookingForm _bookingForm)
         {
            var Availability = new BookingAvailability
            {
