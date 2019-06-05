@@ -11,5 +11,6 @@ namespace SigmaWebService.Controllers
     [ApiController]
     public class SigmaTransfersController : ControllerBase
     {
+        
     }
 }

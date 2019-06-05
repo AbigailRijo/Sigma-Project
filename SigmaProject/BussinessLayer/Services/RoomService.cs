@@ -3,15 +3,31 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 using BussinessLayer.Services.Contracts;
+using DataLayer.Data;
 using DataLayer.Data.Models;
 
 namespace BussinessLayer.Services
 {
     public class RoomService : IRoomService
     {
+        private readonly ApplicationDbContext _context;
+
+        public RoomService(ApplicationDbContext context)
+        {
+            _context = context;
+        }
+
         public Task<bool> Create(Room EntityToCreate)
         {
             throw new NotImplementedException();
+        }
+
+        public async Task<int> CreateRoom(Room _entityToCreate)
+        {
+            _context.Add(_entityToCreate);
+            await _context.SaveChangesAsync();
+
+            return _entityToCreate.Id;
         }
 
         public Task<bool> Delete(Room EntityToDelete)

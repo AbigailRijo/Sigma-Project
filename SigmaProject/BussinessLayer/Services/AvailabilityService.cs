@@ -11,20 +11,10 @@ namespace BussinessLayer.Services
 {
     public class AvailabilityService : IAvailabilityService
     {
-        private readonly IHotelService _hotelService;
-        private readonly IRoomTypeService _roomTypeService;
-        private readonly IRoomService _roomService;
-        private readonly IGuestService _guestService;
-        private readonly ITranferService _tranferService;
         private readonly IBookingService _bookingService;
 
-        public AvailabilityService(IHotelService hotelService, IRoomTypeService roomTypeService, IRoomService roomService, IGuestService guestService, ITranferService tranferService, IBookingService bookingService)
+        public AvailabilityService(IBookingService bookingService)
         {
-            _hotelService = hotelService;
-            _roomTypeService = roomTypeService;
-            _roomService = roomService;
-            _guestService = guestService;
-            _tranferService = tranferService;
             _bookingService = bookingService;
         }
 
