@@ -9,6 +9,6 @@ namespace BussinessLayer.Services.Contracts
 {
     public interface IBookingService :IBaseService<Booking>
     {
-        
+        Task<Booking> Update(BookingSelection _bookingSelection);
     }
 }

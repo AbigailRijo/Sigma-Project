@@ -32,7 +32,7 @@ namespace BussinessLayer.Services
             return await _bookingService.Create(_draftBooking);
         }
 
-        public async Task<bool> Update(BookingForm _bookingForm)
+        public Task<bool> Update(BookingForm _bookingForm)
         {
             throw new NotImplementedException();
         }

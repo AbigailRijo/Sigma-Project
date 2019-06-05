@@ -30,7 +30,7 @@ namespace SigmaWebService.Handlers
         }
         
 
-        protected override async Task< AuthenticateResult> HandleAuthenticateAsync()
+        protected override async Task<AuthenticateResult> HandleAuthenticateAsync()
         {
             if (!Request.Headers.ContainsKey("Authorization"))
                 return AuthenticateResult.Fail("Missing Authorization Header");

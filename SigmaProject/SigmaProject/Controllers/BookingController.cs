@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using BussinessLayer.Services.Contracts;
+using DataLayer.Data.Enums;
 using DataLayer.Data.Models;
 using DataLayer.Data.ViewModels;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -17,53 +18,19 @@ namespace SigmaProject.Controllers
     [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
     public class BookingController : ControllerBase
     {
-        private readonly IHotelService _hotelService;
-        private readonly IRoomTypeService _roomTypeService;
-        private readonly IRoomService _roomService;
-        private readonly IGuestService _guestService;
-        private readonly ITranferService _tranferService;
         private readonly IBookingService _bookingService;
 
-        public BookingController(IHotelService hotelService, IRoomTypeService roomTypeService, IRoomService roomService, IGuestService guestService, ITranferService tranferService, IBookingService bookingService)
+        public BookingController(IBookingService bookingService)
         {
-            _hotelService = hotelService;
-            _roomTypeService = roomTypeService;
-            _roomService = roomService;
-            _guestService = guestService;
-            _tranferService = tranferService;
             _bookingService = bookingService;
         }
 
-        [HttpPost("Hola")]
-        public async Task<IActionResult> Hola(BookingAvailability availability, BookingForm _bookingForm)
+        [HttpPost("BookingSelection")]
+        public async Task<IActionResult> BookingSelection(BookingSelection _bookingSelection)
         {
-            // update the booking hotel, rooms, transfer, status - pending
-            Booking _draftBooking = await _bookingService.GetById((int)_bookingForm.BookingId);
-            Hotel _hotel = _bookingForm.Hotel;
 
-            List<Room> roomList = new List<Room>();
 
-            foreach (var bookingFormRoom in _bookingForm.Rooms)
-            {
-                Room _room = new Room
-                {
-                    Chindren = bookingFormRoom.Children,
-                    Adults = bookingFormRoom.Adults,
-                    ModifyedDate = DateTime.Today
-                };
-
-                var _roomId = await _roomService.CreateRoom(_room);
-                
-                foreach (var guestRoomBookingForm in bookingFormRoom.Guests)
-                {
-                    await _guestService.Create(new Guest
-                    {
-
-                    });
-                }
-                
-                roomList.Add(_room);
-            }
+            await _bookingService.Update(_bookingSelection);
 
             //calculate the total taxes and total price to pay
 
@@ -71,7 +38,7 @@ namespace SigmaProject.Controllers
         }
 
         [HttpPost("FinishBooking")]
-        public async Task<IActionResult> FinishBooking(BookingForm _draftBookingForm)
+        public IActionResult FinishBooking(BookingForm _draftBookingForm)
         {
             //consumed the booking and give a new reservation number
 
@@ -80,7 +47,7 @@ namespace SigmaProject.Controllers
         }
 
         [HttpGet("GetBooking")]
-        public async Task<IActionResult> GetBooking()
+        public IActionResult GetBooking()
         {
             //consumed the booking and give a new reservation number
 

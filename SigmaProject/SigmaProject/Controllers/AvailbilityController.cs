@@ -28,6 +28,7 @@ namespace SigmaProject.Controllers
             if (ModelState.IsValid)
             {
                 //search availability in the web service
+
                 //booking disponibility view model
 
                 //create the draftbooking
