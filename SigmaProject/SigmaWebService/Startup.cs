@@ -30,6 +30,7 @@ namespace SigmaWebService
              .AddScheme<AuthenticationSchemeOptions, BasicAuthHandler>("BasicAuthentication", null);
             services.AddTransient<IApiAuthService, ApiAuthService>();
             services.AddTransient<ISigmaBookingService, SigmaBookingService>();
+            services.AddTransient<ISigmaTranfersService, SigmaTranfersService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

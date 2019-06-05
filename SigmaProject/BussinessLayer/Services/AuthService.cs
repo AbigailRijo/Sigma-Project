@@ -21,7 +21,6 @@ namespace BussinessLayer.Services
         public AuthService(ApplicationDbContext context, IOptions<ApiSettings> settingConfig)
         {
             _context = context;
-
             _apiSettings = settingConfig.Value;
         }
 
